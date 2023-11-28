@@ -1,8 +1,8 @@
 import { readFileSync } from 'node:fs';
 import { resolve as PathResolve } from 'node:path';
 import RobotControlSystem from './robotControlSystem';
-import { Position } from './types';
-import { DEFAULT_INSTRUCTIONS_FILE } from './constants';
+import { Position } from '../utils/types';
+import { DEFAULT_INSTRUCTIONS_FILE } from '../utils/constants';
 
 export default class NavigateController {
 	private readonly fileName: string;

@@ -1,8 +1,8 @@
 import { expect, use as UseChai } from 'chai';
 import  * as sinon from 'sinon';
 import * as sinonChai  from 'sinon-chai';
-import NavigateController from '../navigateController';
-import RobotControlSystem from '../robotControlSystem';
+import NavigateController from '../../controllers/navigateController';
+import RobotControlSystem from '../../controllers/robotControlSystem';
 UseChai(sinonChai);
 const sandbox = sinon.createSandbox();
 describe('NavigateController', () => {

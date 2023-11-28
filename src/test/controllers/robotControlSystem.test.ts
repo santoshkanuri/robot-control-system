@@ -1,8 +1,8 @@
 import { expect, use as UseChai } from 'chai';
 import  * as sinon from 'sinon';
 import * as sinonChai  from 'sinon-chai';
-import RobotControlSystem from '../robotControlSystem';
-import { Direction, Position } from '../types';
+import RobotControlSystem from '../../controllers/robotControlSystem';
+import { Direction, Position } from '../../utils/types';
 UseChai(sinonChai);
 const sandbox = sinon.createSandbox();
 
@@ -40,7 +40,6 @@ describe('RobotControlSystem', () => {
 			const robotControl = new RobotControlSystem('N 0 0');
 			const finalPosition: Position = robotControl.executeCommands('MML');
 			const expectedPosition: Position = { direction: 'W', x: 0, y: 2 };
-			console.log(finalPosition);
 			expect(finalPosition).to.deep.equal(expectedPosition);
 		});
 
@@ -54,7 +53,6 @@ describe('RobotControlSystem', () => {
 			const robotControl = new RobotControlSystem('N 0 0');
 			const finalPosition: Position = robotControl.executeCommands('MMR');
 			const expectedPosition: Position = { direction: 'E', x: 0, y: 2 };
-			console.log(finalPosition);
 			expect(finalPosition).to.deep.equal(expectedPosition);
 		});
 	});

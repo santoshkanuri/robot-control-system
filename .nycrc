@@ -3,10 +3,10 @@
     "check-coverage": true,
     "all": true,
     "include": [
-        "src/!(test).[tj]s?(x)"
+        "src/**/!(test).[tj]s?(x)"
     ],
     "exclude": [
-        "src/tests/*.ts",
+        "src/test/**/*.ts",
         "src/index.ts"
     ],
     "reporter": [

@@ -1,5 +1,5 @@
-import { Direction, Position, Axis } from './types';
-import { MAX_GRID_SIZE, DIRECTIONS, MOVES } from './constants';
+import { Direction, Position, Axis } from '../utils/types';
+import { MAX_GRID_SIZE, DIRECTIONS, MOVES } from '../utils/constants';
 
 export default class RobotControlSystem {
 	private readonly position: Position;
