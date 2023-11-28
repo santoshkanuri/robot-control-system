@@ -99,7 +99,7 @@ describe('RobotControlSystem', () => {
 		it('should Move forward bt 1 position', () => {
 			const robotControl = new RobotControlSystem('E 2 0');
 			robotControl['moveForward']();
-			const expectedPosition: Position = { direction: 'N', x: 2, y: 0 };
+			const expectedPosition: Position = { direction: 'E', x: 3, y: 0 };
 			expect(robotControl.getPosition()).to.deep.equal(expectedPosition);
 		});
 	});
