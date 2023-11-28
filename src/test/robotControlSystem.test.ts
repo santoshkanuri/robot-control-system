@@ -97,10 +97,9 @@ describe('RobotControlSystem', () => {
 	});
 	context('move forward', () => {
 		it('should Move forward bt 1 position', () => {
-			const robotControl = new RobotControlSystem('N 0 0');
-
-			robotControl['move']('y', 4);
-			const expectedPosition: Position = { direction: 'N', x: 0, y: 4 };
+			const robotControl = new RobotControlSystem('E 2 0');
+			robotControl['moveForward']();
+			const expectedPosition: Position = { direction: 'N', x: 2, y: 0 };
 			expect(robotControl.getPosition()).to.deep.equal(expectedPosition);
 		});
 	});
