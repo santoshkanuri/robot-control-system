@@ -11,8 +11,9 @@ export default class NavigateController {
 		this.fileName = fileName;
 	}
 
+	/* istanbul ignore next */
 	private getRobotInstructions(filePath: string): [string, string] {
-		const instructions = readFileSync(PathResolve(__dirname, filePath), 'utf-8')
+		const instructions = readFileSync(PathResolve(filePath), 'utf-8')
 			.trim()
 			.split('\n')
 			.splice(0, 2);

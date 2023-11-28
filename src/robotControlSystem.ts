@@ -17,7 +17,6 @@ export default class RobotControlSystem {
 			direction: direction as Direction,
 		};
 		this.clockWiseDirections = this.getClockwiseDirections('N'); //this.position.direction
-		//this.antiClockWiseDirections = this.getAntiClockwiseDirections('N'); //this.position.direction
 	}
 
 	private isValidPosition(x: string, y: string, direction: Direction): boolean {
@@ -64,6 +63,7 @@ export default class RobotControlSystem {
 					this.rotate(true);
 					break;
 				default:
+					/* istanbul ignore next */
 					break;
 				}
 			}

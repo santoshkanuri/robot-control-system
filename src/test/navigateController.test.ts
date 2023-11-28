@@ -19,16 +19,16 @@ describe('NavigateController', () => {
 			sandbox.restore();
 		});
 		it('should execute robot commands and print starting and final positions', () => {
-			getRobotInstructionsStub.returns(['N 0 0', 'MRMLM']);
+			getRobotInstructionsStub.returns(['N 0 0', 'MRMLMRM1']);
 			const robotControlSystemStub = sandbox.createStubInstance(RobotControlSystem);
 			robotControlSystemStub.getPosition.returns({ direction: 'N', x: 0, y: 0 });
-			robotControlSystemStub.executeCommands.returns({ direction: 'S', x: 1, y: 0});
+			robotControlSystemStub.executeCommands.returns({ direction: 'W', x: 0, y: 0});
 			sandbox.replace(RobotControlSystem.prototype, 'getPosition', robotControlSystemStub.getPosition);
 			sandbox.replace(RobotControlSystem.prototype, 'executeCommands', robotControlSystemStub.executeCommands);
 			navigateController.executeRobotCommands();
 			expect(consoleLogStub).to.be.have.calledTwice;
 			expect(consoleLogStub).to.have.been.calledWith('Starting Position : N 0 0');
-			expect(consoleLogStub).to.have.been.calledWith('Final Position : S 1 0');
+			expect(consoleLogStub).to.have.been.calledWith('Final Position : W 0 0');
 		});
 
 		it('should handle errors during execution of robot commands', () => {
@@ -60,14 +60,6 @@ describe('NavigateController', () => {
 				expect(error.toString()).to.be.equals('Error: Position required');
 			}
 			
-		});
-	});
-	context('getRobotInstructions',()=>{
-		beforeEach(()=>{
-
-		});
-		afterEach(()=>{
-			sandbox.restore();
 		});
 	});
 });

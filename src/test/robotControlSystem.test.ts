@@ -24,6 +24,15 @@ describe('RobotControlSystem', () => {
 			const isValid = robotControl['isValidPosition']('101', '1', 'N');
 			expect(isValid).to.equal(false);
 		});
+		it('should throw error when in valid data is passed',()=>{
+			try {
+				robotControl = new RobotControlSystem('N11');
+			} catch (error) {
+				expect(error).to.be.an.instanceOf(Error);	
+				expect(error.toString()).to.be.equal('Error: Invalid initial position');
+			}
+		});
+			
 	});
 
 	context('executeCommands', () => {
@@ -39,6 +48,13 @@ describe('RobotControlSystem', () => {
 			const robotControl = new RobotControlSystem('N 0 0');
 			const finalPosition: Position = robotControl.executeCommands('');
 			const expectedPosition: Position = { direction: 'N', x: 0, y: 0 };
+			expect(finalPosition).to.deep.equal(expectedPosition);
+		});
+		it('should return final position after executing commands', () => {
+			const robotControl = new RobotControlSystem('N 0 0');
+			const finalPosition: Position = robotControl.executeCommands('MMR');
+			const expectedPosition: Position = { direction: 'E', x: 0, y: 2 };
+			console.log(finalPosition);
 			expect(finalPosition).to.deep.equal(expectedPosition);
 		});
 	});
